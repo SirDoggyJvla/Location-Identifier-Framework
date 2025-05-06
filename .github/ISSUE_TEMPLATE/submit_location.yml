@@ -90,15 +90,6 @@ body:
     validations:
       required: true
 
-  - type: checkboxes
-    id: sublocation
-    attributes:
-      label: Is this a sub-location of another known location?
-      description: Tick this box if this location exists *within* the bounds of another defined location (e.g., a police station inside West Point).
-      options:
-        - label: This is a sub-location
-          required: false
-
   - type: textarea
     id: notes
     attributes:
