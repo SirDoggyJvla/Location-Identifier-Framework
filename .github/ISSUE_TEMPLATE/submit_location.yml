@@ -29,6 +29,17 @@ body:
     validations:
       required: true
 
+  - type: dropdown
+    id: isVanilla
+    attributes:
+      label: Is this location Vanilla or modded?
+      options:
+        - "Vanilla"
+        - "Modded"
+      default: 0
+    validations:
+      required: true
+
   - type: input
     id: mod
     attributes:
@@ -42,21 +53,10 @@ body:
     id: mod_link
     attributes:
       label: Mod Link (if applicable)
-      description: Provide a Steam or GitHub link to the mod that adds this location (if not vanilla)
+      description: Provide a Steam link to the mod that adds this location (if not vanilla)
       placeholder: https://steamcommunity.com/sharedfiles/filedetails/?id=...
     validations:
       required: false
-
-  - type: dropdown
-    id: isVanilla
-    attributes:
-      label: Is this a vanilla location?
-      options:
-        - "true"
-        - "false"
-      default: 0
-    validations:
-      required: true
 
   - type: input
     id: startX
