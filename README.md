@@ -89,10 +89,6 @@ We welcome contributions! You can help in several ways:
   - The corrected `startX`, `endX`, `startY`, `endY`
   - Evidence or reasoning for the fix
 
-### 🧪 Suggest Improvements
-
-- [Open an enhancement suggestion](https://github.com/yourusername/location-identifier-framework/issues/new?template=feature_request.yml)
-
 ---
 
 ## 🔗 External Resources

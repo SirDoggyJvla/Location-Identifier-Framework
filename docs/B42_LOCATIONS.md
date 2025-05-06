@@ -1,23 +1,35 @@
+## Sub-locations
+
+| Long Name               | Short Name         | ID                | Mod     | Is Vanilla | Start (X,Y)  | End (X,Y)    |
+| ----------------------- | ------------------ | ----------------- | ------- | ---------- | ------------ | ------------ |
+| Bunker, March Ridge, KY | March Ridge Bunker | marchridge_bunker | Vanilla | ✅         | (9902,12589) | (9950,12662) |
+
+## Vanilla Locations
+
+| Long Name                         | Short Name                    | ID                        | Mod     | Is Vanilla | Start (X,Y)  | End (X,Y)     |
+| --------------------------------- | ----------------------------- | ------------------------- | ------- | ---------- | ------------ | ------------- |
+| Dixie, KY                         | Dixie                         | dixie                     | Vanilla | ✅         | (5400,9300)  | (5700,9900)   |
+| Doe Valley, KY                    | Doe Valley                    | doevalley                 | Vanilla | ✅         | (6600,9900)  | (6900,10200)  |
+| Fallas Lake, KY                   | Fallas Lake                   | fallaslake                | Vanilla | ✅         | (6900,8100)  | (7500,8700)   |
+| Louisville, KY                    | Louisville                    | louisville                | Vanilla | ✅         | (11700,1200) | (14100,4500)  |
+| Muldraugh, KY                     | Muldraugh                     | muldraugh                 | Vanilla | ✅         | (10500,9000) | (11100,10800) |
+| March Ridge, KY                   | March Ridge                   | marchridge                | Vanilla | ✅         | (9600,12300) | (10500,13200) |
+| Riverside, KY                     | Riverside                     | riverside                 | Vanilla | ✅         | (5700,5100)  | (6900,5700)   |
+| Riverside Trailer Park, KY        | Riverside Trailer Park        | riversidetrailerpark      | Vanilla | ✅         | (5100,5700)  | (5400,6300)   |
+| Rosewood, KY                      | Rosewood                      | rosewood                  | Vanilla | ✅         | (7900,11100) | (8700,12300)  |
+| Kentucky State Prison, KY         | Kentucky State Prison         | kentuckystateprison       | Vanilla | ✅         | (7500,11800) | (7840,12000)  |
+| Valley Station, KY                | Valley Station                | valleystation             | Vanilla | ✅         | (12300,4500) | (13200,6300)  |
+| West Point, KY                    | West Point                    | westpoint                 | Vanilla | ✅         | (10800,6600) | (12600,7500)  |
+| Echo Creek, KY                    | Echo Creek                    | echocreek                 | Vanilla | ✅         | (3365,10854) | (3894,11394)  |
+| Ekron, KY                         | Ekron                         | ekron                     | Vanilla | ✅         | (1,9221)     | (1150,10477)  |
+| Scenic Grove Mobile Home Park, KY | Scenic Grove Mobile Home Park | scenicgrovemobilehomepark | Vanilla | ✅         | (5248,5840)  | (5634,6140)   |
+| Bradenburg, KY                    | Bradenburg                    | bradenburg                | Vanilla | ✅         | (798,5115)   | (3090,7484)   |
+| Irvington, KY                     | Irvington                     | irvington                 | Vanilla | ✅         | (822,12557)  | (3881,15044)  |
+
+## Modded Locations
+
 | Long Name                                      | Short Name                                 | ID                                   | Mod                               | Is Vanilla | Start (X,Y)   | End (X,Y)     |
 | ---------------------------------------------- | ------------------------------------------ | ------------------------------------ | --------------------------------- | ---------- | ------------- | ------------- |
-| Bunker, March Ridge, KY                        | March Ridge Bunker                         | marchridge_bunker                    | Vanilla                           | ✅         | (9902,12589)  | (9950,12662)  |
-| Dixie, KY                                      | Dixie                                      | dixie                                | Vanilla                           | ✅         | (5400,9300)   | (5700,9900)   |
-| Doe Valley, KY                                 | Doe Valley                                 | doevalley                            | Vanilla                           | ✅         | (6600,9900)   | (6900,10200)  |
-| Fallas Lake, KY                                | Fallas Lake                                | fallaslake                           | Vanilla                           | ✅         | (6900,8100)   | (7500,8700)   |
-| Louisville, KY                                 | Louisville                                 | louisville                           | Vanilla                           | ✅         | (11700,1200)  | (14100,4500)  |
-| Muldraugh, KY                                  | Muldraugh                                  | muldraugh                            | Vanilla                           | ✅         | (10500,9000)  | (11100,10800) |
-| March Ridge, KY                                | March Ridge                                | marchridge                           | Vanilla                           | ✅         | (9600,12300)  | (10500,13200) |
-| Riverside, KY                                  | Riverside                                  | riverside                            | Vanilla                           | ✅         | (5700,5100)   | (6900,5700)   |
-| Riverside Trailer Park, KY                     | Riverside Trailer Park                     | riversidetrailerpark                 | Vanilla                           | ✅         | (5100,5700)   | (5400,6300)   |
-| Rosewood, KY                                   | Rosewood                                   | rosewood                             | Vanilla                           | ✅         | (7900,11100)  | (8700,12300)  |
-| Kentucky State Prison, KY                      | Kentucky State Prison                      | kentuckystateprison                  | Vanilla                           | ✅         | (7500,11800)  | (7840,12000)  |
-| Valley Station, KY                             | Valley Station                             | valleystation                        | Vanilla                           | ✅         | (12300,4500)  | (13200,6300)  |
-| West Point, KY                                 | West Point                                 | westpoint                            | Vanilla                           | ✅         | (10800,6600)  | (12600,7500)  |
-| Echo Creek, KY                                 | Echo Creek                                 | echocreek                            | Vanilla                           | ✅         | (3365,10854)  | (3894,11394)  |
-| Ekron, KY                                      | Ekron                                      | ekron                                | Vanilla                           | ✅         | (1,9221)      | (1150,10477)  |
-| Scenic Grove Mobile Home Park, KY              | Scenic Grove Mobile Home Park              | scenicgrovemobilehomepark            | Vanilla                           | ✅         | (5248,5840)   | (5634,6140)   |
-| Bradenburg, KY                                 | Bradenburg                                 | bradenburg                           | Vanilla                           | ✅         | (798,5115)    | (3090,7484)   |
-| Irvington, KY                                  | Irvington                                  | irvington                            | Vanilla                           | ✅         | (822,12557)   | (3881,15044)  |
 | Ashenwood, KY                                  | Ashenwood                                  | ashenwood                            | Ashenwood                         | ❌         | (11400,11100) | (11700,11700) |
 | Bedford Falls, KY                              | Bedford Falls                              | bedfordfalls                         | BedfordFalls                      | ❌         | (12900,9900)  | (15000,11400) |
 | Big Bear Lake, KY                              | Big Bear Lake                              | bigbearlake                          | BBL                               | ❌         | (4800,6900)   | (7200,7800)   |
