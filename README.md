@@ -8,7 +8,7 @@
 - Allows other mods to call:  
   `getLocation(x, y)`  
    to retrieve structured location data (e.g., name, ID, mod origin).
-- Supports **sub-locations** and **overlapping regions**.
+- Supports **sub-locations**.
 - Includes a growing list of over **180+ locations** from **B41**, **B42**, and community maps.
 
 ---
@@ -80,6 +80,7 @@ We welcome contributions! You can help in several ways:
 - [Use the Fix Coordinates template](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=fix_location.yml)
 
 ---
+
 ## 🔧 Current Tasks
 
 - **Fix the B41 Vanilla Locations List**  
@@ -88,6 +89,7 @@ We welcome contributions! You can help in several ways:
   - B41 and B42 vanilla location coordinates need to be double-checked for accuracy.
 
 If you'd like to contribute:
+
 1. **Fork** the repository
 2. **Create a branch** for your fixes or additions
 3. Update the appropriate `.lua` location files
