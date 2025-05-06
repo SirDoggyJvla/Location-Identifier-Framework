@@ -65,7 +65,7 @@ We welcome contributions! You can help in several ways:
 
 ### 🐞 Submit a Bug Report
 
-- [Open a bug issue here](https://github.com/yourusername/location-identifier-framework/issues/new?template=bug_report.yml)
+- [Open a bug issue here](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=bug_report.yml)
 - Include:
 
   - Coordinates that return incorrect location
@@ -74,7 +74,7 @@ We welcome contributions! You can help in several ways:
 
 ### 📌 Submit a New Location
 
-- [Submit a new location request](https://github.com/yourusername/location-identifier-framework/issues/new?template=submit_location.yml)
+- [Submit a new location request](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=submit_location.yml)
 - Or fork the repo and:
 
   - Add your location to the correct `.lua` file
@@ -82,7 +82,7 @@ We welcome contributions! You can help in several ways:
 
 ### 🧭 Report Incorrect Coordinates
 
-- [Use the Fix Coordinates template](https://github.com/yourusername/location-identifier-framework/issues/new?template=fix_location.yml)
+- [Use the Fix Coordinates template](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=fix_location.yml)
 - Be sure to include:
 
   - The ID of the location
