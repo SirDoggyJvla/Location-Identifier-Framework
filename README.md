@@ -65,12 +65,7 @@ We welcome contributions! You can help in several ways:
 
 ### 🐞 Submit a Bug Report
 
-- [Open a bug issue here](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=bug_report.yml)
-- Include:
-
-  - Coordinates that return incorrect location
-  - Expected vs actual result
-  - Optional: Screenshot or map reference
+- [Open a bug issue](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=bug_report.yml)
 
 ### 📌 Submit a New Location
 
@@ -83,11 +78,6 @@ We welcome contributions! You can help in several ways:
 ### 🧭 Report Incorrect Coordinates
 
 - [Use the Fix Coordinates template](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=fix_location.yml)
-- Be sure to include:
-
-  - The ID of the location
-  - The corrected `startX`, `endX`, `startY`, `endY`
-  - Evidence or reasoning for the fix
 
 ---
 
@@ -102,5 +92,3 @@ We welcome contributions! You can help in several ways:
 ## 📜 License
 
 This project is licensed under the [MIT License](LICENSE).
-
----
