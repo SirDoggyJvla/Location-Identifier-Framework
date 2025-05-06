@@ -1,0 +1,68 @@
+version=1
+id=3473144811
+title=Location Identifier Framework
+description=[h1]Description[/h1]
+description=[b]Location Identifier Framework[/b] is a framework designed to help mods easily identify in-game world locations using coordinates. With LIF, you can retrieve structured and detailed information about any known map area, both vanilla and modded, by simply passing X and Y world coordinates.
+description=
+description=Please note that this is a [b]framework[/b], not a standalone mod. It’s intended to be used by other mods that require detailed data of a certain location.
+description=
+description=[h1]How It Works[/h1]
+description=LIF maintains a curated list of map regions, including both vanilla zones and areas added by supported map mods. On game start, LIF detects which mods are active and dynamically loads only the relevant location entries.
+description=
+description=[h1]Usage Examples[/h1]
+description=[code]
+description=local LIF = require("LIF")
+description=
+description=-- Get location data from coordinates
+description=local loc = LIF.getLocation(5420, 9450)
+description=print(loc.shortName) -- Outputs: Dixie
+description=
+description=-- Get the current location of a player
+description=local playerLoc = LIF.getPlayerLocation(player)
+description=print(playerLoc.longName) -- Outputs: Dixie, KY
+description=[/code]
+description=
+description=Each location entry includes:
+description=[list]
+description=[*] [b]longName[/b] – Full name of the location (e.g., "Dixie, KY")
+description=[*] [b]shortName[/b] – Abbreviated name (e.g., "Dixie")
+description=[*] [b]id[/b] – A lowercase ID key (e.g., "dixie")
+description=[*] [b]mod[/b] – The mod ID that added the location. If the location is vanilla, it will return "Vanilla"
+description=[*] [b]isVanilla[/b] – Boolean flag for vanilla locations
+description=[*] [b]startX/endX/startY/endY[/b] – Bounding coordinates
+description=[/list]
+description=
+description=[h1]Compatibility[/h1]
+description=[list]
+description=[*][b]Other Mods[/b] - Should be fully compatible with all mods. Only interacts with coordinates and does not alter gameplay.
+description=[*][b]Game Version[/b] - Tested and works on 41.73+. Not tested on earlier versions.
+description=[*][b]Multiplayer[/b] - Functional in multiplayer
+description=[*][b]Pre-existing saves[/b] - Can be added to pre-existing saves.
+description=[/list]
+description=
+description=[h1]Known Bugs/Issues[/h1]
+description=[list]
+description=[*] No known issues.
+description=[/list]
+description=
+description=[h1]Links[/h1]
+description=[url=https://discord.gg/ekaZW6jD3E][img]https://i.ibb.co/rF4BGFb/discord-Button.png[/img][/url] - Join me on Discord
+description=[url=https://ko-fi.com/arendameth][img]https://i.ibb.co/f43JTJc/button.png[/img][/url] - I love Coffee. Perhaps you'll consider buying me one?
+description=
+description=[h1]Feedback[/h1]
+description=Whether it is a suggestion, feedback, or something else you've got on mind, it'd be hugely appreciated!
+description=
+description=[img]https://i.ibb.co/Y2qkMXV/Rate-Fav.gif[/img]
+description=
+description=[h1]Credits[/h1]
+description=[list]
+description=[*] This framework utilizes location data originally created by [b][url=https://steamcommunity.com/id/BitBraven]Braven[/url][/b] in his mod [i][url=https://steamcommunity.com/sharedfiles/filedetails/?id=3097650043]"Where Am I"[/url][/i], and has been extended to include additional metadata. Huge thanks to Braven for granting permission to build upon his work!
+description=[/list]
+description=
+description=[quote]This mod's permissions fall under TIS's policy [url=https://theindiestone.com/forums/index.php?/topic/2530-mod-permissions/#comment-36478]Ask for permission[/url]
+description=
+description=This mod can only be added to and extended with the express permission from the original creator. Having received permission, credit must be given to the original creator, both within the files of the mod and wherever the mod roams online.
+description=
+description=If no permission is received you may not alter the mod, and it must be treated as a mod that is 'On Lockdown'.[/quote]
+tags=Build 41;Build 42;Framework;Map
+visibility=public

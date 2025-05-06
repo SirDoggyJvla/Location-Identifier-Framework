@@ -1,0 +1,7 @@
+name=Location Identifier Framework
+poster=poster.png
+id=LIF
+description=<TEXT> <LEFT> A modding Framework that makes it possible to easily identify a player's location.
+author=Arendameth
+modversion=1.0.0
+icon=icon.png

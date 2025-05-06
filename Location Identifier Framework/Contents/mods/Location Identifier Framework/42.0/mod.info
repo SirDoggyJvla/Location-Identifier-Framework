@@ -1,0 +1,8 @@
+name=Location Identifier Framework
+poster=poster.png
+id=LIF
+description=<TEXT> <LEFT> A modding Framework that makes it possible to easily identify the location data of specific coordinates.
+author=Arendameth
+modversion=1.0.0
+versionMin=42.0
+icon=icon.png
