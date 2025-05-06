@@ -102,7 +102,7 @@ If you'd like to contribute:
 ## 🔗 External Resources
 
 - **PZWiki Mod Page:** [Location Identifier Framework on PZWiki](https://pzwiki.net/wiki/Location_Identifier_Framework)
-- **Steam Mod Page:** [Location IDentifier Framework on Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=3473144811)
+- **Steam Mod Page:** [Location Identifier Framework on Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=3473144811)
 
 ---
 
