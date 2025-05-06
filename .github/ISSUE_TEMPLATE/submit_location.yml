@@ -104,3 +104,4 @@ body:
     attributes:
       label: Additional Notes or Context (Optional)
       description: Add any extra information, screenshots, or helpful references.
+      placeholder: You can paste screenshots, mod sources, or notes here.
