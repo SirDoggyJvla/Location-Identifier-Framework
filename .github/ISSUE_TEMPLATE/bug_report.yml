@@ -3,7 +3,7 @@ description: Report a bug or unexpected behavior related to location detection
 labels: [bug]
 body:
   - type: textarea
-    id:bug_description
+    id: bug_description
     attributes:
       label: Bug Description
       description: How did the bug happen? What did you expect to happen, and what happened instead?
