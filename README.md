@@ -101,9 +101,8 @@ If you'd like to contribute:
 
 ## 🔗 External Resources
 
-- 📄 **PZWiki Mod Page:** [Location Identifier Framework on PZWiki](https://pzwiki.net/wiki/Location_Identifier_Framework)
-
-> The PZWiki page may include usage examples, integration tips, and compatibility notes from the broader Project Zomboid modding community.
+- **PZWiki Mod Page:** [Location Identifier Framework on PZWiki](https://pzwiki.net/wiki/Location_Identifier_Framework)
+- **Steam Mod Page:** [Location IDentifier Framework on Steam](https://steamcommunity.com/sharedfiles/filedetails/?id=3473144811)
 
 ---
 
