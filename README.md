@@ -81,6 +81,24 @@ We welcome contributions! You can help in several ways:
 
 ---
 
+## 🔧 Current Tasks
+
+- **Fix the B41 Vanilla Locations List**  
+  Currently, both B41 and B42 reference the same location data. This is not ideal:
+  - Some locations in B42 don't exist in B41.
+  - B41 vanilla location coordinates need to be double-checked for accuracy.
+
+If you'd like to contribute:
+
+1. **Fork** the repository
+2. **Create a branch** for your fixes or additions
+3. Update the appropriate `.lua` location files
+4. **Submit a Pull Request** with a clear explanation of your changes
+
+> You can also [submit a fix via the coordinate correction template](https://github.com/Arendameth/Location-Identifier-Framework/issues/new?template=fix_location.yml) if you prefer not to work with Git directly.
+
+---
+
 ## 🔗 External Resources
 
 - 📄 **PZWiki Mod Page:** [Location Identifier Framework on PZWiki](https://pzwiki.net/wiki/Location_Identifier_Framework)
