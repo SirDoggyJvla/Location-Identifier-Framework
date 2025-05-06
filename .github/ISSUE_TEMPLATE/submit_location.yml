@@ -1,6 +1,6 @@
 name: Submit New Location
 description: Submit a new location to be added to the Location Identifier Framework
-labels: ["new-location"]
+labels: [new-location]
 body:
   - type: input
     id: longName
@@ -52,8 +52,8 @@ body:
     attributes:
       label: Is this a vanilla location?
       options:
-        - true
-        - false
+        - "true"
+        - "false"
       default: 0
     validations:
       required: true
@@ -97,7 +97,7 @@ body:
       description: Tick this box if this location exists *within* the bounds of another defined location (e.g., a police station inside West Point).
       options:
         - label: This is a sub-location
-          required: false
+          required: "false"
 
   - type: textarea
     id: notes
