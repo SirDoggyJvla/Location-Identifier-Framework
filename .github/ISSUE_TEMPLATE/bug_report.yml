@@ -1,0 +1,33 @@
+name: Bug Report
+description: Report a bug or unexpected behavior related to location detection
+labels: [bug]
+body:
+  - type: textarea
+    id:bug_description
+    attributes:
+      label: Bug Description
+      description: How did the bug happen? What did you expect to happen, and what happened instead?
+      placeholder: "Example: I passed coordinates (5420, 9450) and expected it to return 'Dixie', but it returned 'nil'."
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game_build
+    attributes:
+      label: Game Build
+      description: Which build of Project Zomboid are you using?
+      options:
+        - B41
+        - B42
+        - Other / Not Sure
+    validations:
+      required: true
+
+  - type: textarea
+    id: error_log
+    attributes:
+      label: Error Log (if any)
+      description: Paste any relevant error logs or stack traces here. If none, leave blank.
+      placeholder: "Copy and paste Lua errors, console output, etc."
+    validations:
+      required: false

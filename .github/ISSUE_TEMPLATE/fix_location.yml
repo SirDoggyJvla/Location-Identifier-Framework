@@ -1,0 +1,52 @@
+name: Fix Incorrect Coordinates
+description: Report and correct inaccurate coordinates for an existing location
+labels: [coordinate-fix]
+body:
+  - type: input
+    id: location_id
+    attributes:
+      label: Location ID
+      description: The ID of the location that needs correction (e.g., "dixie", "marchridge_bunker")
+      placeholder: marchridge_bunker
+    validations:
+      required: true
+
+  - type: dropdown
+    id: game_build
+    attributes:
+      label: Affected Build
+      description: Which version of the game is this correction for?
+      options:
+        - B41
+        - B42
+        - Both
+      default: 2
+    validations:
+      required: true
+
+  - type: input
+    id: old_coords
+    attributes:
+      label: Current Coordinates (as defined)
+      description: The currently defined startX, endX, startY, endY values
+      placeholder: startX = 9902, endX = 9950, startY = 12589, endY = 12662
+    validations:
+      required: true
+
+  - type: input
+    id: new_coords
+    attributes:
+      label: Corrected Coordinates
+      description: What the coordinates should be (startX, endX, startY, endY)
+      placeholder: startX = 9910, endX = 9955, startY = 12595, endY = 12670
+    validations:
+      required: true
+
+  - type: textarea
+    id: reason
+    attributes:
+      label: Reason or Evidence
+      description: Why do you believe the current coordinates are incorrect?
+      placeholder: The game updated and the current bounds no longer apply.
+    validations:
+      required: true

@@ -1,0 +1,106 @@
+name: Submit New Location
+description: Submit a new location to be added to the Location Identifier Framework
+labels: [new-location]
+body:
+  - type: input
+    id: longName
+    attributes:
+      label: Long Name
+      description: Full name of the location (e.g., "Bunker, March Ridge, KY")
+      placeholder: Bunker, March Ridge, KY
+    validations:
+      required: true
+
+  - type: input
+    id: shortName
+    attributes:
+      label: Short Name
+      description: A simplified or shortened name (e.g., "March Ridge Bunker")
+      placeholder: March Ridge Bunker
+    validations:
+      required: true
+
+  - type: input
+    id: id
+    attributes:
+      label: ID
+      description: A lowercase identifier key (e.g., "marchridge_bunker")
+      placeholder: marchridge_bunker
+    validations:
+      required: true
+
+  - type: input
+    id: mod
+    attributes:
+      label: Mod ID
+      description: If it's a vanilla location, write "Vanilla". Otherwise, specify the mod name.
+      placeholder: Vanilla or [YourModName]
+    validations:
+      required: true
+
+  - type: input
+    id: mod_link
+    attributes:
+      label: Mod Link (if applicable)
+      description: Provide a Steam or GitHub link to the mod that adds this location (if not vanilla)
+      placeholder: https://steamcommunity.com/sharedfiles/filedetails/?id=...
+    validations:
+      required: false
+
+  - type: dropdown
+    id: isVanilla
+    attributes:
+      label: Is this a vanilla location?
+      options:
+        - true
+        - false
+      default: 0
+    validations:
+      required: true
+
+  - type: input
+    id: startX
+    attributes:
+      label: startX
+      placeholder: e.g., 9902
+    validations:
+      required: true
+
+  - type: input
+    id: startY
+    attributes:
+      label: startY
+      placeholder: e.g., 12589
+    validations:
+      required: true
+
+  - type: input
+    id: endX
+    attributes:
+      label: endX
+      placeholder: e.g., 9950
+    validations:
+      required: true
+
+  - type: input
+    id: endY
+    attributes:
+      label: endY
+      placeholder: e.g., 12662
+    validations:
+      required: true
+
+  - type: checkboxes
+    id: sublocation
+    attributes:
+      label: Is this a sub-location of another known location?
+      description: Tick this box if this location exists *within* the bounds of another defined location (e.g., a police station inside West Point).
+      options:
+        - label: This is a sub-location
+          required: false
+
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional Notes or Context (Optional)
+      description: Add any extra information, screenshots, or helpful references.
