@@ -2,6 +2,13 @@
 -- ** Data originally created by Braven. I only modifier them for additional fields. All rights go to him. **
 -- **********************************************************************************************************
 
+---requirements
+--caching
+local separator = getFileSeparator()
+
+
+
+
 local LIFLocations = {}
 LIFLocations.ActivatedLocations = {}
 LIFLocations.AllLocations =
@@ -2103,5 +2110,73 @@ LIFLocations.AllLocations =
         endY = 6499
     },
 }
+
+local JavaArrayToKeyTable = function(t)
+    local keyTable = {}
+    for i=0,t:size()-1 do
+        local v = t:get(i)
+        keyTable[v] = true
+    end
+    return keyTable
+end
+
+LIFLocations.SetupMapInformations = function()
+    print("LOADING MOD FILES")
+
+    local activeModIDs = getActivatedMods()
+    activeModIDs = JavaArrayToKeyTable(activeModIDs)
+    for modID,_ in pairs(activeModIDs) do
+        print(modID)
+        LIFLocations.ParseMapFiles(modID)
+    end
+end
+
+LIFLocations.MapFoldersToScan = {
+    {"media","maps",},
+}
+
+for i=1,#LIFLocations.MapFoldersToScan do
+    local folder = LIFLocations.MapFoldersToScan[i]
+    local path = table.concat(folder, separator)
+    LIFLocations.MapFoldersToScan[i] = path
+end
+
+LIFLocations.ParseMapFiles = function(modID)
+    local mapFolder = getMapFoldersForMod(modID)
+    if not mapFolder then return end
+    -- print(mapFolder)
+    -- print(modDir)
+
+    for i=1,#LIFLocations.MapFoldersToScan do
+        local folder = LIFLocations.MapFoldersToScan[i]
+        for j=0,mapFolder:size()-1 do
+            local mapPath = mapFolder:get(j)
+            local folder = folder..separator..mapPath
+            print(folder)
+            -- LIFLocations.ParseMapFile(modID, file, folder, mapPath)
+            local files = listFilesInModDirectory(modID,folder)
+            print(files)
+        end
+
+        -- local files = listFilesInModDirectory(modID, commonDir..separator..folder..mapFolder[0])
+
+        -- print(files)
+    end
+
+    -- local reader = getModFileReader(modID, file, false)
+
+    -- if not reader then return end
+
+    -- local lines = {}
+    -- local line = reader:readLine()
+    -- while line do
+    --     table.insert(lines, line)
+    --     line = reader:readLine()
+    -- end
+    -- reader:close()
+end
+
+
+LIFLocations.SetupMapInformations()
 
 return LIFLocations

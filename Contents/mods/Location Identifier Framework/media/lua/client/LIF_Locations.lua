@@ -2104,38 +2104,4 @@ LIFLocations.AllLocations =
     },
 }
 
-LIFLocations.GetModFiles = function()
-
-    local activeModIDs = getActivatedMods()
-    for i=1,activeModIDs:size() do
-        local modID = activeModIDs:get(i-1)
-        print(modID)
-        LIFLocations.ParseMapFiles(modID)
-    end
-
-
-end
-
-LIFLocations.ParseMapFiles = function(modID)
-    local files = listFilesInModDirectory(modID, "media/maps/")
-
-    print(files)
-
-    -- local reader = getModFileReader(modID, file, false)
-
-    -- if not reader then return end
-
-    -- local lines = {}
-    -- local line = reader:readLine()
-    -- while line do
-    --     table.insert(lines, line)
-    --     line = reader:readLine()
-    -- end
-    -- reader:close()
-end
-
-
-LIFLocations.GetModFiles()
-
-
 return LIFLocations
