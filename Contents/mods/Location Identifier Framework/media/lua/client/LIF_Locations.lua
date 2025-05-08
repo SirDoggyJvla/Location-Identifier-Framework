@@ -2104,4 +2104,21 @@ LIFLocations.AllLocations =
     },
 }
 
+LIFLocations.GetModFiles = function()
+
+    local activeModIDs = getActivatedMods()
+    for i=1,activeModIDs:size() do
+        local modID = activeModIDs:get(i-1)
+        print(modID)
+    end
+
+
+end
+
+LIFLocations.ParseMapFiles = function(modID)
+    local files = listFilesInModDirectory(modID, "media/maps/")
+
+    local reader = getModFileReader()
+end
+
 return LIFLocations
