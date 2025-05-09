@@ -2150,12 +2150,11 @@ LIFLocations.GetMapFiles = function(modID,mapFolderName)
     return maps
 end
 
----
+---Verifies the map is located in the Kentucky main map
 ---@param modID string
 ---@param mapFolder string
 ---@return boolean
 LIFLocations.IsKentucky = function(modID,mapFolder)
-    print(mapFolder..separator.."map.info")
     -- read map.info file
     local reader = getModFileReader(modID, mapFolder..separator.."map.info", false)
     if not reader then return false end
@@ -2167,6 +2166,7 @@ LIFLocations.IsKentucky = function(modID,mapFolder)
         line = reader:readLine()
         if not line then break end
         if string.contains(line, "lots=") and string.split(line,"=")[2] == "Muldraugh, KY" then
+            reader:close()
             return true
         end
     end
@@ -2175,7 +2175,7 @@ LIFLocations.IsKentucky = function(modID,mapFolder)
     return false
 end
 
-LIFLocations.GetMapCells = function(modID,map,files)
+LIFLocations.GetMapCells = function(files)
     local cells = {}
     for i=0,files:size()-1 do
         local file = files:get(i)
@@ -2183,12 +2183,10 @@ LIFLocations.GetMapCells = function(modID,map,files)
             local cellID = string.split(file,"\\.")[1]
             local split = string.split(cellID,"\\_")
 
-            table.insert(cells,split)
+            table.insert(cells,split) -- might not want to split later if we use lookup tables
         end
     end
 end
-
-
 
 LIFLocations.ParseMapFiles = function(modID)
     local mapFolderName = getMapFoldersForMod(modID)
@@ -2197,24 +2195,13 @@ LIFLocations.ParseMapFiles = function(modID)
     local maps = LIFLocations.GetMapFiles(modID,mapFolderName)
 
     for mapPath,files in pairs(maps) do repeat
-        print(mapPath)
         if not LIFLocations.IsKentucky(modID,mapPath) then break end
 
-        local cells = LIFLocations.GetMapCells(modID,mapPath,files)
+        local cells = LIFLocations.GetMapCells(files)
+        ---either retrieve corner boundaries
+        ---or use the lookup system for maps which should be better, faster and more efficient overall
+        ---and so use the cell ID directly ("X_Y") as the lookup entries to not make X = {Y=map} but X_Y = map
     until true end
-
-
-    -- local reader = getModFileReader(modID, file, false)
-
-    -- if not reader then return end
-
-    -- local lines = {}
-    -- local line = reader:readLine()
-    -- while line do
-    --     table.insert(lines, line)
-    --     line = reader:readLine()
-    -- end
-    -- reader:close()
 end
 
 
