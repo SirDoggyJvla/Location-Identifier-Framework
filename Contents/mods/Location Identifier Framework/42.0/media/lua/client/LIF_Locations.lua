@@ -2201,6 +2201,8 @@ LIFLocations.ParseMapFiles = function(modID)
         ---either retrieve corner boundaries
         ---or use the lookup system for maps which should be better, faster and more efficient overall
         ---and so use the cell ID directly ("X_Y") as the lookup entries to not make X = {Y=map} but X_Y = map
+        ---
+        ---also add checks for maps sharing the same cells
     until true end
 end
 
