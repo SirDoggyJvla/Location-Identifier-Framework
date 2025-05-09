@@ -2131,37 +2131,78 @@ LIFLocations.SetupMapInformations = function()
     end
 end
 
-LIFLocations.MapFoldersToScan = {
-    {"media","maps",},
-}
 
-for i=1,#LIFLocations.MapFoldersToScan do
-    local folder = LIFLocations.MapFoldersToScan[i]
-    local path = table.concat(folder, separator)
-    LIFLocations.MapFoldersToScan[i] = path
+local modsMapsPath = "media/maps"
+
+LIFLocations.GetMapFiles = function(modID,mapFolderName)
+    local maps = {}
+
+    for i=0,mapFolderName:size()-1 do
+        local mapPath = mapFolderName:get(i)
+        local testFolder = modsMapsPath..separator..mapPath
+
+        local files = listFilesInModDirectory(modID,testFolder)
+        if files and files:size() > 0 then
+            maps[testFolder] = files
+        end
+    end
+
+    return maps
 end
 
-LIFLocations.ParseMapFiles = function(modID)
-    local mapFolder = getMapFoldersForMod(modID)
-    if not mapFolder then return end
-    -- print(mapFolder)
-    -- print(modDir)
+---
+---@param modID string
+---@param mapFolder string
+---@return boolean
+LIFLocations.IsKentucky = function(modID,mapFolder)
+    print(mapFolder..separator.."map.info")
+    -- read map.info file
+    local reader = getModFileReader(modID, mapFolder..separator.."map.info", false)
+    if not reader then return false end
 
-    for i=1,#LIFLocations.MapFoldersToScan do
-        local folder = LIFLocations.MapFoldersToScan[i]
-        for j=0,mapFolder:size()-1 do
-            local mapPath = mapFolder:get(j)
-            local folder = folder..separator..mapPath
-            print(folder)
-            -- LIFLocations.ParseMapFile(modID, file, folder, mapPath)
-            local files = listFilesInModDirectory(modID,folder)
-            print(files)
+    local lines = {}
+    local line = reader:readLine()
+    while line do
+        table.insert(lines, line)
+        line = reader:readLine()
+        if not line then break end
+        if string.contains(line, "lots=") and string.split(line,"=")[2] == "Muldraugh, KY" then
+            return true
         end
-
-        -- local files = listFilesInModDirectory(modID, commonDir..separator..folder..mapFolder[0])
-
-        -- print(files)
     end
+    reader:close()
+
+    return false
+end
+
+LIFLocations.GetMapCells = function(modID,map,files)
+    local cells = {}
+    for i=0,files:size()-1 do
+        local file = files:get(i)
+        if string.contains(file,".lotheader") then
+            local cellID = string.split(file,"\\.")[1]
+            local split = string.split(cellID,"\\_")
+
+            table.insert(cells,split)
+        end
+    end
+end
+
+
+
+LIFLocations.ParseMapFiles = function(modID)
+    local mapFolderName = getMapFoldersForMod(modID)
+    if not mapFolderName then return end
+
+    local maps = LIFLocations.GetMapFiles(modID,mapFolderName)
+
+    for mapPath,files in pairs(maps) do repeat
+        print(mapPath)
+        if not LIFLocations.IsKentucky(modID,mapPath) then break end
+
+        local cells = LIFLocations.GetMapCells(modID,mapPath,files)
+    until true end
+
 
     -- local reader = getModFileReader(modID, file, false)
 
