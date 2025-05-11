@@ -2111,23 +2111,12 @@ LIFLocations.AllLocations =
     },
 }
 
-local JavaArrayToKeyTable = function(t)
-    local keyTable = {}
-    for i=0,t:size()-1 do
-        local v = t:get(i)
-        keyTable[v] = true
-    end
-    return keyTable
-end
-
 LIFLocations.SetupMapInformations = function()
-    print("LOADING MOD FILES")
+    print("LIF: LOADING MODDED MAPS INFORMATIONS")
 
     local activeModIDs = getActivatedMods()
-    activeModIDs = JavaArrayToKeyTable(activeModIDs)
-    for modID,_ in pairs(activeModIDs) do
-        print(modID)
-        LIFLocations.ParseMapFiles(modID)
+    for i = 0, activeModIDs:size()-1 do
+        LIFLocations.ParseMapFiles(activeModIDs:get(i))
     end
 end
 
@@ -2150,42 +2139,65 @@ LIFLocations.GetMapFiles = function(modID,mapFolderName)
     return maps
 end
 
----Verifies the map is located in the Kentucky main map
+---Retrieve map informations from its map.info file.
 ---@param modID string
 ---@param mapFolder string
----@return boolean
-LIFLocations.IsKentucky = function(modID,mapFolder)
-    -- read map.info file
+---@return table|nil
+LIFLocations.GetMapInformations = function(modID,mapFolder)
+    print("getting map informations for "..mapFolder)
+    -- verify has a map.info file
     local reader = getModFileReader(modID, mapFolder..separator.."map.info", false)
-    if not reader then return false end
+    if not reader then return end
 
-    local lines = {}
+    local mapInformations = {
+        id = modID,
+        description = {},
+    }
+    print(modID)
+
     local line = reader:readLine()
     while line do
-        table.insert(lines, line)
-        line = reader:readLine()
         if not line then break end
-        if string.contains(line, "lots=") and string.split(line,"=")[2] == "Muldraugh, KY" then
-            reader:close()
-            return true
+        if string.contains(line, "lots=") then
+            mapInformations.worldMap = string.split(line,"=")[2]
+        elseif string.contains(line, "description=") then
+            table.insert(mapInformations.description,string.split(line,"=")[2])
+        elseif string.contains(line, "title=") then
+            mapInformations.longName = string.split(line,"=")[2]
+        elseif string.contains(line, "fixed2x=") then
+            mapInformations.fixed2x = string.split(line,"=")[2]
         end
+        line = reader:readLine()
     end
     reader:close()
 
+    return mapInformations
+end
+
+---Verifies the map is located in the Kentucky main world map.
+---@param mapInformations table
+---@return boolean
+LIFLocations.IsKentucky = function(mapInformations)
+    if mapInformations.worldMap == "Muldraugh, KY" then return true end
     return false
 end
 
+---Retrieve the map cells from the map `.lotheader` files.
+---@param files ArrayList
+---@return table
 LIFLocations.GetMapCells = function(files)
     local cells = {}
     for i=0,files:size()-1 do
         local file = files:get(i)
         if string.contains(file,".lotheader") then
             local cellID = string.split(file,"\\.")[1]
-            local split = string.split(cellID,"\\_")
+            -- local split = string.split(cellID,"\\_")
 
-            table.insert(cells,split) -- might not want to split later if we use lookup tables
+            table.insert(cells,cellID)
         end
     end
+
+    return cells
 end
 
 LIFLocations.ParseMapFiles = function(modID)
@@ -2195,15 +2207,48 @@ LIFLocations.ParseMapFiles = function(modID)
     local maps = LIFLocations.GetMapFiles(modID,mapFolderName)
 
     for mapPath,files in pairs(maps) do repeat
-        if not LIFLocations.IsKentucky(modID,mapPath) then break end
+        local mapInformations = LIFLocations.GetMapInformations(modID,mapPath)
+        if not mapInformations then break end
+
+        if not LIFLocations.IsKentucky(mapInformations) then break end
 
         local cells = LIFLocations.GetMapCells(files)
+        LIFLocations.PopulateNewMap(mapInformations, cells)
+
         ---either retrieve corner boundaries
         ---or use the lookup system for maps which should be better, faster and more efficient overall
         ---and so use the cell ID directly ("X_Y") as the lookup entries to not make X = {Y=map} but X_Y = map
         ---
         ---also add checks for maps sharing the same cells
     until true end
+end
+
+
+LIFLocations.CellToMap = {}
+LIFLocations.Maps = {}
+
+---Populate the map information into the LIFLocations `Maps` table to retrieve the map from the map long name and in `CellToMap` to retrieve the map long name from the cell ID.
+---
+---Combine both for an easy access to the map information directly from the cell ID.
+---@param mapInformations any
+---@param cells any
+---@param _isVanilla any
+LIFLocations.PopulateNewMap = function(mapInformations,cells,_isVanilla)
+    _isVanilla = _isVanilla or false
+
+    LIFLocations.Maps[mapInformations.longName] = mapInformations
+
+    for i = 1, #cells do
+        local cell = cells[i]
+
+        -- possibly allow multiple entries per cells instead. Alternatively, take into account load order of maps to know which one will be loaded here with a cleanup function after parsing every maps
+        if LIFLocations.CellToMap[cell] then
+            print("LIF: WARNING: Map "..mapInformations.longName.." has the same cell ID as "..LIFLocations.CellToMap[cell]..". ("..cell..")")
+        end
+
+        -- register map celll
+        LIFLocations.CellToMap[cell] = mapInformations.longName
+    end
 end
 
 
